@@ -39,7 +39,7 @@
 				<executions>
 					<execution>
 						<goals>
-							<goal>repackage</goal>
+							<goal>single</goal>
 						</goals>
 						<configuration>
 							<classifier>spring-boot</classifier>
