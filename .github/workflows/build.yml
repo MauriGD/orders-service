@@ -33,7 +33,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MauriGD_shipping-service
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MauriGD_orders-service
         
       - name: maven
         uses: actions/checkout@v3
@@ -63,6 +63,6 @@ jobs:
         run: | 
             ls target
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 083266080818.dkr.ecr.us-east-1.amazonaws.com
-            docker build --build-arg JAR_FILE=target/orders-service-example-0.0.1-SNAPSHOT.jar -t shipping-service .
+            docker build --build-arg JAR_FILE=target/orders-service-example-0.0.1-SNAPSHOT.jar -t orders-service .
             docker tag orders-service:latest 083266080818.dkr.ecr.us-east-1.amazonaws.com/orders-service:$IMAGE_TAG
-            docker push 083266080818.dkr.ecr.us-east-1.amazonaws.com/shipping-service:$IMAGE_TAG
+            docker push 083266080818.dkr.ecr.us-east-1.amazonaws.com/orders-service:$IMAGE_TAG
