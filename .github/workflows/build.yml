@@ -1,4 +1,4 @@
-name: CICD Order-Service
+name: CICD Order-Service.
 on:
   push:
     branches:
