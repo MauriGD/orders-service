@@ -73,7 +73,7 @@ jobs:
             docker build --build-arg JAR_FILE=target/orders-service-example-0.0.1-SNAPSHOT.jar -t orders-service .
             docker tag orders-service:latest 083266080818.dkr.ecr.us-east-1.amazonaws.com/orders-service:$IMAGE_TAG
             docker push 083266080818.dkr.ecr.us-east-1.amazonaws.com/orders-service:$IMAGE_TAG
-            aws ecs describe-task-definition --task-definition orders-service-task --query taskDefinition > task-definition.json
+            aws ecs describe-task-definition --task-definition orders_service-task --query taskDefinition > task-definition.json
             
         
       - name: Fill in the new image ID in the Amazon ECS task definition
